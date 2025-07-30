@@ -3,12 +3,12 @@
     "device": "Rogue Console",
     "files": [
       {
-        "firmware": "/gear/Rogue Console/rogue-console_v1.0.39_20250328(181353).gd.bin",
+        "firmware": "/gear/Rogue Console/rogue-console_v1.1.52_20250728(180255).gd.bin",
         "type": "gd",
-        "version": "v1.0.39",
-        "updated": "2025-04-03T00:52:44.092Z",
-        "size": 658204,
-        "md5": "b59a87c070f8975eb13a5b50dac0ff0a"
+        "version": "v1.1.52",
+        "updated": "2025-07-30T06:22:09.063Z",
+        "size": 649948,
+        "md5": "346674614131696fd7d7f7d31e438507"
       }
     ]
   },
