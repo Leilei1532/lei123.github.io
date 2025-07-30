@@ -1,0 +1,41 @@
+[
+  {
+    "device": "Rogue Console",
+    "files": [
+      {
+        "firmware": "/gear/Rogue Console/rogue-console_v1.0.39_20250328(181353).gd.bin",
+        "type": "gd",
+        "version": "v1.0.39",
+        "updated": "2025-04-03T00:52:44.092Z",
+        "size": 658204,
+        "md5": "b59a87c070f8975eb13a5b50dac0ff0a"
+      }
+    ]
+  },
+  {
+    "device": "Rogue Echo Gym Timer 2.0",
+    "files": [
+      {
+        "firmware": "/gear/Rogue Echo Gym Timer 2.0/echo-gym-timer-ys138_v1.0.17_20250416(182500).gd.bin",
+        "type": "gd",
+        "version": "v1.0.17",
+        "updated": "2025-04-16T11:28:37.569Z",
+        "size": 79176,
+        "md5": "c015ababf4c13395babc3b2e7656c586"
+      }
+    ]
+  },
+  {
+    "device": "Rogue Home Timer 2.0",
+    "files": [
+      {
+        "firmware": "/gear/Rogue Home Timer 2.0/home-timer-ys137_v1.0.17_20250416(183654).gd.bin",
+        "type": "gd",
+        "version": "v1.0.17",
+        "updated": "2025-04-16T11:29:43.585Z",
+        "size": 80228,
+        "md5": "eaf2b1fed5664cd444927789c8a1151a"
+      }
+    ]
+  }
+]

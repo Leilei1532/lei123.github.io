@@ -1,0 +1,105 @@
+// TypeScript: Directory Scanner to Generate Manifest.json
+
+import * as fs from 'fs'
+import * as path from 'path'
+import * as crypto from 'crypto'
+
+export const md5 = (contents: string) =>
+  crypto.createHash('md5').update(contents).digest('hex')
+
+// PROPOSED
+// const proposed = {
+//   device: "Device model",
+//   version: [
+//     {
+//       firmware: "Firmware download address",
+//       versionType: "version type,gd,rf etc",
+//       version: "version no.",
+//       updated: "Update time",
+//       size: "Size",
+//       checksum: "document verification code, md5 or sha1 check code",
+//     },
+//   ],
+// };
+
+interface FirmwareInfo {
+  firmware: string
+  type: 'gd' | 'rf'
+  version: string,
+  updated: string
+  size: number
+  md5: string
+}
+interface DeviceInfo {
+  device: string
+  files: FirmwareInfo[]
+  // FirmwareInfo[];
+}
+
+// Function to scan a directory and collect firmware details from subfolders
+async function scanDirectory(dirPath: string): Promise<DeviceInfo[]> {
+  const devices = await fs.promises.readdir(dirPath, { withFileTypes: true })
+  const result = await Promise.all(
+    devices
+      .filter(dirent => dirent.isDirectory())
+      .map(async (device) => {
+        const filePath = path.join(dirPath, device.name)
+        const files = await fs.promises.readdir(filePath, {
+          withFileTypes: true,
+        })
+
+        const firmwares = await Promise.all(
+          files
+          .filter(dirent => !dirent.name.startsWith('.'))
+          .map(async (file) => {
+            const stats = await fs.promises.stat(path.join(filePath, file.name))
+            const url =
+              '/' + path.join(filePath, file.name).split('\\').slice(1).join('/')
+
+            //console.log(`scanDirectory: ${path.join(filePath, file.name).split('\\').slice(1)}`)
+
+            const fileContents = await fs.promises.readFile(
+              path.join(filePath, file.name)
+            )
+            const md5 = crypto
+              .createHash('md5')
+              .update(fileContents)
+              .digest('hex')
+
+            return <FirmwareInfo>{
+              firmware: url,
+              type: file.name.split('.').slice(-2)[0],
+              version: file.name.split('_')[1],
+              updated: stats.mtime.toISOString(),
+              size: stats.size,
+              md5: md5,
+            }
+          })
+        )
+
+        return <DeviceInfo>{
+          device: device.name,
+          files: firmwares,
+        }
+      })
+  )
+
+  // console.log(JSON.stringify(result))
+  return result
+}
+
+// Function to generate manifest.json file
+async function generateManifest(dirPath: string, outputPath: string) {
+  try {
+    const deviceInfo = await scanDirectory(dirPath)
+    await fs.promises.writeFile(outputPath, JSON.stringify(deviceInfo, null, 2))
+    console.log(`Manifest generated at ${outputPath}`)
+  } catch (error) {
+    console.error('Error generating manifest:', error)
+  }
+}
+
+// Example usage
+const targetDirectory = './public/gear/' // Directory to scan
+const manifestPath = './public/manifest.json' // Output manifest file path
+generateManifest(targetDirectory, manifestPath)
