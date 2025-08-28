@@ -3,12 +3,12 @@
     "device": "Rogue Console",
     "files": [
       {
-        "firmware": "/gear/Rogue Console/rogue-console_v1.1.53_20250728(180255).gd.bin",
-        "type": "gd",
-        "version": "v1.1.53",
-        "updated": "2025-07-30T07:17:54.076Z",
-        "size": 649948,
-        "md5": "346674614131696fd7d7f7d31e438507"
+        "firmware": "/gear/Rogue Console/YS152_gd32_app_ota_v1.1.55_20250826(100614).bin",
+        "type": "55_20250826(100614)",
+        "version": "gd32",
+        "updated": "2025-08-26T03:04:07.429Z",
+        "size": 661192,
+        "md5": "159cb9c09ed3d444e9724f160bfc55df"
       }
     ]
   },
@@ -19,7 +19,7 @@
         "firmware": "/gear/Rogue Echo Gym Timer 2.0/echo-gym-timer-ys138_v1.0.17_20250416(182500).gd.bin",
         "type": "gd",
         "version": "v1.0.17",
-        "updated": "2025-04-16T11:28:37.569Z",
+        "updated": "2025-08-28T02:29:13.961Z",
         "size": 79176,
         "md5": "c015ababf4c13395babc3b2e7656c586"
       }
@@ -32,7 +32,7 @@
         "firmware": "/gear/Rogue Home Timer 2.0/home-timer-ys137_v1.0.17_20250416(183654).gd.bin",
         "type": "gd",
         "version": "v1.0.17",
-        "updated": "2025-04-16T11:29:43.585Z",
+        "updated": "2025-08-28T02:29:13.965Z",
         "size": 80228,
         "md5": "eaf2b1fed5664cd444927789c8a1151a"
       }
