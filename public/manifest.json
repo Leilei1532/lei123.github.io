@@ -3,10 +3,10 @@
     "device": "Rogue Console",
     "files": [
       {
-        "firmware": "/gear/Rogue Console/YS152_gd32_app_ota_v1.1.55_20250826(100614).bin",
-        "type": "55_20250826(100614)",
+        "firmware": "/gear/Rogue Console/YS152_gd32_app_ota_v1.1.56_20250826(100614).bin",
+        "type": "56_20250826(100614)",
         "version": "gd32",
-        "updated": "2025-08-26T03:04:07.429Z",
+        "updated": "2025-08-28T03:02:56.565Z",
         "size": 661192,
         "md5": "159cb9c09ed3d444e9724f160bfc55df"
       }
